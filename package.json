@@ -1,0 +1,14 @@
+{
+  "name": "avesis-api",
+  "version": "1.0.0",
+  "description": "Fetch provided avesis documents page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "avesis"
+  ],
+  "author": "code-a-man",
+  "license": "MIT"
+}
