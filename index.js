@@ -11,13 +11,14 @@ module.exports.getAvesis = async function (university, teacher) {
 		const head =  $(elem).find('div.item-head > div')
 		const body =  $(elem).find('div.item-body')
 		const linkSuffix = body.find('a.btn.btn-warning.btn-sm').attr('href')
-        list.push({
+        const object = {
 			title : head.find('div.col-md-8.col-xs-3 > span').text().trim(),
 			type: head.find('div.col-md-2.col-xs-4 > span').text().trim(),
 			date: head.find('div.col-md-2.col-xs-5 > span').text().trim(),
 			description: body.text().trim(),
-			link: `https://avesis.${university}.edu.tr${linkSuffix}`,
-		})
+		}
+		if (linkSuffix) object.link = `https://avesis.${university}.edu.tr${linkSuffix}`
+		list.push(object)
     });
 	return list
 }
