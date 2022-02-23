@@ -21,18 +21,15 @@ $ npm install avesis-api
 ```js
 const { getDocuments } = require("avesis-api");
 // Example URL: https://avesis.aaa.edu.tr/bbb
-getDocuments({ university: "aaa", teacher: "bbb" }).then(function (response) {
+const options = {
+	 university: "aaa", // required, University name in URL
+	 teacher: "bbb", // required, Teacher name in URL required
+	 limit: 1, // optional, Number of documents to return from last. default = Infinity
+	 html: false // optional, return description as HTML string. default = false
+}
+getDocuments(options).then(function (response) {
   console.log(response);
 });
-
-/*
- options = {
-	 university: University name in URL,
-	 teacher: Teacher name in URL,
-	 limit: Number of documents to return from last. default = Infinity,
-	 html: return description as HTML string. default = false
- }
-*/
 ```
 ## 📤 Example Output
 ```js
