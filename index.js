@@ -1,7 +1,7 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 
-module.exports.getDocuments = async function({ university, teacher, limit = Infinity }) {
+module.exports.getDocuments = async function({ university, teacher, limit = Infinity, html = false }) {
 	if (limit <= 0) return 'Limit can\'t be below 1!';
 	const url = `https://avesis.${university}.edu.tr/${teacher}/dokumanlar`;
 	const list = [];
@@ -16,7 +16,7 @@ module.exports.getDocuments = async function({ university, teacher, limit = Infi
 			title : head.find('div.col-md-8.col-xs-3 > span').text().trim(),
 			type: head.find('div.col-md-2.col-xs-4 > span').text().trim(),
 			date: head.find('div.col-md-2.col-xs-5 > span').text().trim(),
-			description: body.text().trim(),
+			description: html ? body.html().trim().replace(/\s+/g, ' ') : body.text().trim(),
 		};
 		if (linkSuffix) object.link = `https://avesis.${university}.edu.tr${linkSuffix}`;
 		list.push(object);
