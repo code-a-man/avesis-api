@@ -11,7 +11,7 @@ module.exports.getDocuments = async function({ university, teacher, limit = Infi
 	$('div[class="ac-item"]').each(function(i, elem) {
 		const head = $(elem).find('div.item-head > div');
 		const body = $(elem).find('div.item-body');
-		const linkSuffix = body.find('a.btn.btn-warning.btn-sm').attr('href');
+		const linkSuffix = body.find('a[class="btn btn-warning btn-sm"]').attr('href');
 		// ? Remove buttons from html
 		$('a').each(function() { $(this).replaceWith('');});
 		$('img').each(function() { $(this).replaceWith('');	});
