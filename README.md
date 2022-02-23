@@ -24,6 +24,15 @@ const { getDocuments } = require("avesis-api");
 getDocuments({ university: "aaa", teacher: "bbb" }).then(function (response) {
   console.log(response);
 });
+
+/*
+ options = {
+	 university: University name in URL,
+	 teacher: Teacher name in URL,
+	 limit: Number of documents to return from last. default = Infinity,
+	 html: return description as HTML string. default = false
+ }
+*/
 ```
 ## 📤 Example Output
 ```js
@@ -43,3 +52,4 @@ getDocuments({ university: "aaa", teacher: "bbb" }).then(function (response) {
   },
 ];
 ```
+Copyright (c) 2022 Code a Man
