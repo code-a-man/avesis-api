@@ -1,6 +1,6 @@
 {
   "name": "avesis-api",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Fetch provided avesis documents page",
   "main": "index.js",
   "repository": {
