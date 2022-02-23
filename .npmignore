@@ -12,3 +12,4 @@ CVS
 npm-debug.log
 .eslintrc.json
 tests/
+.vscode/
