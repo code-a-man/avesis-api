@@ -1,7 +1,7 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 
-module.exports.getAvesis = async function(university, teacher, limit = Infinity) {
+module.exports.getAvesis = async function({ university, teacher, limit = Infinity }) {
 	if (limit <= 0) return 'Limit can\'t be below 1!';
 	const url = `https://avesis.${university}.edu.tr/${teacher}/dokumanlar`;
 	const list = [];
