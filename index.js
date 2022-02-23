@@ -13,8 +13,11 @@ module.exports.getDocuments = async function({ university, teacher, limit = Infi
 		const body = $(elem).find('div.item-body');
 		const linkSuffix = body.find('a[class="btn btn-warning btn-sm"]').attr('href');
 		// ? Remove buttons from html
-		$('a').each(function() { $(this).replaceWith('');});
-		$('img').each(function() { $(this).replaceWith('');	});
+		$(elem).find('a').each(function() {
+			if (!$(this).hasClass('btn btn-warning btn-sm')) return $(this).replaceWith(`\n${$(this)}`);
+			$(this).replaceWith('');
+		});
+		$(elem).find('img').each(function() { $(this).replaceWith('');	});
 		const object = {
 			title : head.find('div.col-md-8.col-xs-3 > span').text().trim(),
 			type: head.find('div.col-md-2.col-xs-4 > span').text().trim(),
