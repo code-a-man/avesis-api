@@ -12,6 +12,9 @@ module.exports.getDocuments = async function({ university, teacher, limit = Infi
 		const head = $(elem).find('div.item-head > div');
 		const body = $(elem).find('div.item-body');
 		const linkSuffix = body.find('a.btn.btn-warning.btn-sm').attr('href');
+		// ? Remove buttons from html
+		$('a').each(function() { $(this).replaceWith('');});
+		$('img').each(function() { $(this).replaceWith('');	});
 		const object = {
 			title : head.find('div.col-md-8.col-xs-3 > span').text().trim(),
 			type: head.find('div.col-md-2.col-xs-4 > span').text().trim(),
