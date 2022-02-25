@@ -8,6 +8,11 @@ module.exports.getDocuments = async function({ university, teacher, limit = Infi
 	const { data } = await axios.get(url).catch(err => err);
 	if (!data) return `Couldn't reach ${url} check the url!`;
 	const $ = cheerio.load(data);
+	const imgSuffix = $('#header > div > div > div.logo-wrapper > div > a > img').attr('src');
+	const teacherObject = {
+		name : $('#header > div > div > div.logo-wrapper > div > h1').text().trim(),
+		img : `https://avesis.${university}.edu.tr${imgSuffix}`,
+	};
 	$('div[class="ac-item"]').each(function(i, elem) {
 		const head = $(elem).find('div.item-head > div');
 		const body = $(elem).find('div.item-body');
@@ -29,6 +34,6 @@ module.exports.getDocuments = async function({ university, teacher, limit = Infi
 		// ? cheerio .each() loop breaks with "return false;"
 		if (list.length === limit) return false;
 	});
-	return list;
+	return { teacher: teacherObject, list };
 };
 
