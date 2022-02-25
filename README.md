@@ -4,10 +4,10 @@
   <br/>
   <br/>
   <p>
-    <a href="https://www.npmjs.com/package/avesis-api"><img src="https://badgen.net/npm/dt/avesis-api"/></a>
-    <a href="https://www.npmjs.com/package/avesis-api"><img src="https://badgen.net/packagephobia/install/avesis-api"></a>
+	<a href="https://www.npmjs.com/package/avesis-api"><img src="https://badgen.net/npm/dt/avesis-api"/></a>
+	<a href="https://www.npmjs.com/package/avesis-api"><img src="https://badgen.net/packagephobia/install/avesis-api"></a>
   </p>
-      <a href="https://npmjs.org/package/avesis-api"><img src="https://nodei.co/npm/avesis-api.png?downloads=true&downloadRank=true&stars=true"></a>
+	  <a href="https://npmjs.org/package/avesis-api"><img src="https://nodei.co/npm/avesis-api.png?downloads=true&downloadRank=true&stars=true"></a>
 </div>
 
 ## 📥 Install
@@ -36,22 +36,22 @@ getDocuments(options).then(function (response) {
 {
 	
 	teacher: {
-    	name: 'Asst. Prof. Aaa',
-    	img: 'https://avesis.aaa.edu.tr/user/image/123123'
+		name: 'Asst. Prof. Aaa',
+		img: 'https://avesis.aaa.edu.tr/user/image/123123'
   	},
   	list: [
 		{
-    		title: "Last Announcement",
-    		type: "Duyuru",
-    		date: "23.02.2022",
-    		description: 'Description',
+			title: "Last Announcement",
+			type: "Duyuru",
+			date: "23.02.2022",
+			description: 'Description',
   		},
   		{
-    		title: "Announcement with File",
-    		type: "Ders Notu",
-    		date: "20.02.2022",
-    		description: "Description\nwith\nmultiline",
-    		link: "https://avesis.aaa.edu.tr/resume/downloadfile/bbb?key=1231231-1231-1231-1231-123123123123",
+			title: "Announcement with File",
+			type: "Ders Notu",
+			date: "20.02.2022",
+			description: "Description\nwith\nmultiline",
+			link: "https://avesis.aaa.edu.tr/resume/downloadfile/bbb?key=1231231-1231-1231-1231-123123123123",
   		},
 	]
 }
