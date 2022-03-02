@@ -52,6 +52,7 @@ getDocuments(options).then(function (response) {
 			date: "20.02.2022",
 			description: "Description\nwith\nmultiline",
 			link: "https://avesis.aaa.edu.tr/resume/downloadfile/bbb?key=1231231-1231-1231-1231-123123123123",
+			locked: true,
   		},
 	]
 }

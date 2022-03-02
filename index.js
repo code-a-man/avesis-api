@@ -17,6 +17,7 @@ module.exports.getDocuments = async function({ university, teacher, limit = Infi
 		const head = $(elem).find('div.item-head > div');
 		const body = $(elem).find('div.item-body');
 		const linkSuffix = body.find('a[class="btn btn-warning btn-sm"]').attr('href');
+		const locked = $(elem).find('div.item-body > a.btn.btn-warning.btn-sm > span > i').hasClass('fa fa-lock');
 		// ? Remove buttons from html
 		$(elem).find('a').each(function() {
 			if (!$(this).hasClass('btn btn-warning btn-sm')) return $(this).replaceWith(`\n${$(this)}`);
@@ -29,7 +30,10 @@ module.exports.getDocuments = async function({ university, teacher, limit = Infi
 			date: head.find('div.col-md-2.col-xs-5 > span').text().trim(),
 			description: html ? body.html().trim().replace(/\s+/g, ' ') : body.text().trim(),
 		};
-		if (linkSuffix) object.link = `https://avesis.${university}.edu.tr${linkSuffix}`;
+		if (linkSuffix) {
+			object.link = `https://avesis.${university}.edu.tr${linkSuffix}`;
+			object.locked = locked;
+		}
 		list.push(object);
 		// ? cheerio .each() loop breaks with "return false;"
 		if (list.length === limit) return false;
