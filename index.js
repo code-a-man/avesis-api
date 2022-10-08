@@ -16,7 +16,7 @@ module.exports.getDocuments = async function({ university, teacher, limit = Infi
 	$('div[class="ac-item"]').each(function(i, elem) {
 		const head = $(elem).find('div.item-head > div');
 		const body = $(elem).find('div.item-body');
-		const linkSuffix = body.find('a[class="btn btn-warning btn-sm"]').attr('href');
+		const button = body.find('a[class="btn btn-warning btn-sm"]');
 		const locked = $(elem).find('div.item-body > a.btn.btn-warning.btn-sm > span > i').hasClass('fa fa-lock');
 		// ? Remove buttons from html
 		$(elem).find('a').each(function() {
@@ -30,8 +30,10 @@ module.exports.getDocuments = async function({ university, teacher, limit = Infi
 			date: head.find('div.col-md-2.col-xs-5 > span').text().trim(),
 			description: html ? body.html().trim().replace(/\s+/g, ' ') : body.text().trim(),
 		};
-		if (linkSuffix) {
-			object.link = `https://avesis.${university}.edu.tr${linkSuffix}`;
+		if (button) {
+			object.link = `https://avesis.${university}.edu.tr${button.attr('href')}`;
+			object.filename = button.text().replace(/\n/g, '').trim();
+			object.fileExt = object.filename.split('.').pop();
 			object.locked = locked;
 		}
 		list.push(object);
